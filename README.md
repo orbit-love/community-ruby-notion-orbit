@@ -1,15 +1,18 @@
-# PLATFORM to Orbit Workspace
+# Notion to Orbit Workspace
 
 <!-- Update repo name -->
-![Build Status](https://github.com/orbit-love/repo-name/workflows/CI/badge.svg)
+
+![Build Status](https://github.com/orbit-love/community-ruby-notion-orbit/workflows/CI/badge.svg)
+
 <!-- Generator at https://badge.fury.io/ -->
+
 [![Gem Version](https://badge.fury.io/rb/dev_orbit.svg)](https://badge.fury.io/rb/dev_orbit)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 
 One-line description about what this is and what language it is in.
 
-|<p align="left">:sparkles:</p> This is a *community project*. The Orbit team does its best to maintain it and keep it up to date with any recent API changes.<br/><br/>We welcome community contributions to make sure that it stays current. <p align="right">:sparkles:</p>|
-|-----------------------------------------|
+| <p align="left">:sparkles:</p> This is a _community project_. The Orbit team does its best to maintain it and keep it up to date with any recent API changes.<br/><br/>We welcome community contributions to make sure that it stays current. <p align="right">:sparkles:</p> |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ![There are three ways to use this integration. Install package - build and run your own applications. Run the CLI - run on-demand directly from your terminal. Schedule an automation with GitHub - get started in minutes - no coding required](docs/ways-to-use.png)
 
@@ -23,11 +26,13 @@ To set up this integration you will need some details from PLATFORM. To get thes
 
 The application requires the following environment variables:
 
-| Variable | Description | More Info
-|---|---|--|
-| `NAME` | Brief description | Where to get it 
-| `ORBIT_API_KEY` | API key for Orbit | Found in `Account Settings` in your Orbit workspace
-| `ORBIT_WORKSPACE_ID` | ID for your Orbit workspace | Last part of the Orbit workspace URL, i.e. `https://app.orbit.love/my-workspace`, the ID is `my-workspace`
+| Variable                | Description                 | More Info                                                                                                  |
+| ----------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `NOTION_API_KEY`        | The secret Notion API key   | Where to get it                                                                                            |
+| `NOTION_WORKSPACE_SLUG` | Brief description           | Where to get it                                                                                            |
+| `NOTION_DATABASE_ID`    | Brief description           | Where to get it                                                                                            |
+| `ORBIT_API_KEY`         | API key for Orbit           | Found in `Account Settings` in your Orbit workspace                                                        |
+| `ORBIT_WORKSPACE_ID`    | ID for your Orbit workspace | Last part of the Orbit workspace URL, i.e. `https://app.orbit.love/my-workspace`, the ID is `my-workspace` |
 
 ## Package Usage
 
@@ -40,7 +45,7 @@ $ installation command
 Use the package with the following snippet.
 
 ```
-#
+NotionOrbit::Client.new.process
 ```
 
 <!-- Make sure all variants and standalone methods are explained. -->
