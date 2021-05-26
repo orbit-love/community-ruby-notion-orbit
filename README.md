@@ -60,7 +60,7 @@ client = NotionOrbit::Client.new
 
 ### Fetching New Notes 
 
-Once, you have an instantiated client, you can fetch new notes and add them to your Orbit workspace by invoking the `#notes` method on the client:
+Once you have an instantiated client, you can fetch new notes and add them to your Orbit workspace by invoking the `#notes` method on the client:
 
 ```ruby
 client.notes
