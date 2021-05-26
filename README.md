@@ -66,6 +66,15 @@ Once you have an instantiated client, you can fetch new notes and add them to yo
 
 New notes will be added to the respective member profiles located by email address. If a member cannot be found by the email address, a new member will be created.
 
+The database entry must have the two following properties in order for the note to be sent to Orbit:
+
+* `Send to Orbit` as a **selected checkbox**
+* `Member Email` with the Orbit member's email address
+
+![Database Properties Setup](docs/setup-table-for-orbit.png)
+
+Then, once those fields are set up, the method can be called as follows:
+
 ```ruby
 client.notes
 ```
