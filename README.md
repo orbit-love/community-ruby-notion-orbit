@@ -1,11 +1,11 @@
-# Notion Interactions to Orbit Workspace
+# Notion Notes to Orbit Workspace
 
 
 ![Build Status](https://github.com/orbit-love/community-ruby-notion-orbit/workflows/CI/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/notion_orbit.svg)](https://badge.fury.io/rb/notion_orbit)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 
-Add your Notion interactions into your Orbit workspace with this community-built integration.
+Add your Notion notes into your Orbit workspace with this community-built integration.
 
 | <p align="left">:sparkles:</p> This is a _community project_. The Orbit team does its best to maintain it and keep it up to date with any recent API changes.<br/><br/>We welcome community contributions to make sure that it stays current. <p align="right">:sparkles:</p> |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +70,7 @@ client.notes
 
 You can also use this package with the included CLI. To use the CLI pass in the required environment variables on the command line before invoking the CLI.
 
-To check for new event RSVPs:
+To check for new notes:
 
 ```bash
 $ ORBIT_API_KEY=... ORBIT_WORKSPACE_ID=... NOTION_API_KEY=... NOTION_DATABASE_ID=... NOTION_WORKSPACE_SLUG=... bundle exec notion_orbit --check-notes
