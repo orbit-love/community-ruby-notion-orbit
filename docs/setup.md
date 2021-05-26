@@ -10,3 +10,8 @@ During the setup, we will need to create a new Notion integration which will all
 4. Save the "Internal Integration Token" from Notion. You will use it in this application. Do not share it with others and keep it in a secure location.
 5. Make sure that the "Integration Type" is set to "Internal Integration".
 6. Click "Save changes".
+7. You must add your integration to the database in your Notion workspace that you wish to fetch notes from.
+    * From the top navigation bar in your Notion database view press the "Share" button
+    * Find your integration by the name you gave it in the request form
+    * Select the integration and click "Invite"<br/>
+         ![](https://files.readme.io/0a267dd-share-database-with-integration.gif)
