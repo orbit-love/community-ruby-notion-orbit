@@ -30,7 +30,7 @@ module NotionOrbit
             private
 
             def orbit_note_url(member_slug)
-                "https://app.orbit.love/#{ENV['ORBIT_WORKSPACE_ID']}/members/#{member_slug}?type=notes"
+                "https://app.orbit.love/#{@orbit_workspace}/members/#{member_slug}?type=notes"
             end
         end
     end

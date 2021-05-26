@@ -34,7 +34,7 @@ RSpec.describe NotionOrbit::Interactions::Note do
 
                 stub_request(:patch, "https://api.notion.com/v1/pages/12").
                 with(
-                  body: "{\"id\":\"12\",\"properties\":{\"Orbit Note URL\":\"https://app.orbit.love/ben-test/members/testing-person?type=notes\",\"Orbit Status\":[{\"text\":{\"content\":\"OK\"}}]}}",
+                  body: "{\"id\":\"12\",\"properties\":{\"Orbit Note URL\":\"https://app.orbit.love/1234/members/testing-person?type=notes\",\"Orbit Status\":[{\"text\":{\"content\":\"OK\"}}]}}",
                   headers: {
                     'Accept'=>'application/json; charset=utf-8',
                     'Authorization'=>'Bearer a123',
