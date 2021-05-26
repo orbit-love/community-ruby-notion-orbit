@@ -2,7 +2,7 @@
 
 # First Time Setup
 
-During the setup, we will need to create a new Notion integration which will allow this library to interact with the platform. The application will contain an API secret which we should take note of for later.
+During the setup, we will need to create a new Notion integration which will allow this library to interact with the platform. This process takes about 2 minutes to finish. The application will contain an API secret which we should take note of for later.
 
 1. Head to [Notion Integrations](https://www.notion.so/my-integrations) and login in to your account.
 2. Click on the "+ New Integration" button on the left-hand side of the page. *Note: You must have admin access to your Notion workspace.*
