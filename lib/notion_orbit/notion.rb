@@ -12,7 +12,7 @@ module NotionOrbit
 
         def process_notes      
             notion_service = NotionOrbit::Services::Notion.new
-            orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace)
+            orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace, orbit_api_key: @orbit_api_key)
             
             notes = notion_service.notes(database_id: @notion_database_id)
       
@@ -20,7 +20,7 @@ module NotionOrbit
                 next if note[:properties][:email].nil? || note[:properties][:email] == ""
 
                 member_slug = orbit_service.member_slug(email: note[:properties][:email]) 
-                next if member_slug == "No member found" || member_slug.nil?
+                next if member_slug == "" || member_slug.nil?
 
                 NotionOrbit::Orbit.call(
                     type: "note",
@@ -31,7 +31,9 @@ module NotionOrbit
                             page_id: note[:properties][:page_id],
                             content: note[:content]
                         }
-                    }
+                    },
+                    orbit_workspace: @orbit_workspace,
+                    orbit_api_key: @orbit_api_key
                 )
             end      
         end

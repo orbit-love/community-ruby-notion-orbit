@@ -14,7 +14,7 @@ module NotionOrbit
             end
 
             def after_initialize!
-                orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace)
+                orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace, orbit_api_key: @orbit_api_key)
                 notion_service = NotionOrbit::Services::Notion.new
 
                 orbit_service.send_note(
