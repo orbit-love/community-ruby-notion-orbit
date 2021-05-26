@@ -7,6 +7,8 @@
 
 Add your Notion notes into your Orbit workspace with this community-built integration.
 
+![Screenshot of a new note in Orbit](docs/new-note-screenshot.png)
+
 | <p align="left">:sparkles:</p> This is a _community project_. The Orbit team does its best to maintain it and keep it up to date with any recent API changes.<br/><br/>We welcome community contributions to make sure that it stays current. <p align="right">:sparkles:</p> |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
