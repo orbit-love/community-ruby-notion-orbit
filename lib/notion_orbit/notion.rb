@@ -19,8 +19,8 @@ module NotionOrbit
             notes.each do |note|
                 next if note[:properties][:email].nil? || note[:properties][:email] == ""
 
-                member_slug = orbit_service.member_slug(email: note[:properties][:email])
-                next if member_slug.nil? || member_slug == ""
+                member_slug = orbit_service.member_slug(email: note[:properties][:email]) 
+                next if member_slug == "No member found" || member_slug.nil?
 
                 NotionOrbit::Orbit.call(
                     type: "note",

@@ -22,7 +22,9 @@ module NotionOrbit
 
         response = http.request(request)
         json = JSON.parse(response.read_body)
-        json['data']['attributes']['slug']
+        return json['data']['attributes']['slug'] if json["data"]
+
+        "No member found"
       end
 
       def send_note(api_key:, member_slug:, content:)
