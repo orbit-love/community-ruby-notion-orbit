@@ -12,7 +12,7 @@ module NotionOrbit
 
         def process_notes      
             notion_service = NotionOrbit::Services::Notion.new
-            orbit_service = NotionOrbit::Services::Orbit.new(workspace_slug: @notion_workspace_slug)
+            orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace)
             
             notes = notion_service.notes(database_id: @notion_database_id)
       
