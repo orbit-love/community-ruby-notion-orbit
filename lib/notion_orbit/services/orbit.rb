@@ -5,12 +5,12 @@ require 'openssl'
 module NotionOrbit
   module Services
     class Orbit
-      def initialize(workspace_slug:)
-        @workspace_slug = workspace_slug
+      def initialize(orbit_workspace:)
+        @orbit_workspace = orbit_workspace
       end
 
       def member_slug(email:) 
-        url = URI("https://app.orbit.love/api/v1/#{@workspace_slug}/members/find?source=email&email=#{email}")
+        url = URI("https://app.orbit.love/api/v1/#{@orbit_workspace}/members/find?source=email&email=#{email}")
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -25,8 +25,8 @@ module NotionOrbit
         json['data']['attributes']['slug']
       end
 
-      def send_note(member_slug:, content:)
-        url = URI("https://app.orbit.love/api/v1/#{@workspace_slug}/members/#{member_slug}/notes")
+      def send_note(api_key:, member_slug:, content:)
+        url = URI("https://app.orbit.love/api/v1/#{@orbit_workspace}/members/#{member_slug}/notes")
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -34,8 +34,9 @@ module NotionOrbit
         request = Net::HTTP::Post.new(url)
         request["Accept"] = 'application/json'
         request["Content-Type"] = 'application/json'
-        request["Authorization"] = "Bearer #{ENV['ORBIT_API_KEY']}"
+        request["Authorization"] = "Bearer #{api_key}"
         request["Content-Type"] = "application/json"
+        request["User-Agent"] = "community-ruby-notion-orbit/#{NotionOrbit::VERSION}",
         request.body = "{\"body\":\"#{content}\"}"
 
         response = http.request(request)
