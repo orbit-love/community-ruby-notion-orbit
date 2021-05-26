@@ -11,7 +11,7 @@ module NotionOrbit
         end
 
         def process_notes      
-            notion_service = NotionOrbit::Services::Notion.new
+            notion_service = NotionOrbit::Services::Notion.new(token: @notion_api_key)
             orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace, orbit_api_key: @orbit_api_key)
             
             notes = notion_service.notes(database_id: @notion_database_id)
@@ -33,7 +33,8 @@ module NotionOrbit
                         }
                     },
                     orbit_workspace: @orbit_workspace,
-                    orbit_api_key: @orbit_api_key
+                    orbit_api_key: @orbit_api_key,
+                    notion_api_key: @notion_api_key
                 )
             end      
         end

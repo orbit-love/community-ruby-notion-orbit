@@ -63,7 +63,7 @@ module NotionOrbit
         request["Content-Type"] = 'application/json'
         request["Authorization"] = "Bearer #{api_key}"
         request["Content-Type"] = "application/json"
-        request["User-Agent"] = "community-ruby-notion-orbit/#{NotionOrbit::VERSION}",
+        request["User-Agent"] = "community-ruby-notion-orbit/#{NotionOrbit::VERSION}"
         request.body = "{\"body\":\"#{content}\"}"
 
         response = http.request(request)
