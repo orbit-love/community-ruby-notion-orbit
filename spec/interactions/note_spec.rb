@@ -28,7 +28,7 @@ RSpec.describe NotionOrbit::Interactions::Note do
                     'Authorization'=>'Bearer 12345',
                     'Content-Type'=>'application/json',
                     'Host'=>'app.orbit.love',
-                    'User-Agent'=>'community-ruby-notion-orbit/0.0.1'
+                    'User-Agent'=>"community-ruby-notion-orbit/#{NotionOrbit::VERSION}"
                   }).
                 to_return(status: 200, body: "", headers: {})
 
