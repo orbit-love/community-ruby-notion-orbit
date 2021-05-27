@@ -79,6 +79,21 @@ Then, once those fields are set up, the method can be called as follows:
 client.notes
 ```
 
+#### Supported Notion Content Blocks and Types
+
+This integration has built-in support to convert the following Notion content block and types into markdown and rendered in Orbit:
+
+* Heading Level 1
+* Heading Level 2
+* Heading Level 3
+* Numbered List
+* Bulleted List
+* Paragraph Block
+* To-Do List
+* Bold Font
+* Italic Font
+* Code Blocks
+
 ## CLI Usage
 
 You can also use this package with the included CLI. To use the CLI pass in the required environment variables on the command line before invoking the CLI.
