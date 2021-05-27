@@ -1,10 +1,10 @@
 module NotionOrbit
   module Services
     class Notion
-      attr_reader :client
+      attr_reader :client, :token
 
-      def initialize
-        @client = ::Notion::Client.new(token: ENV['NOTION_API_KEY'])
+      def initialize(params = {})
+        @client = ::Notion::Client.new(token: params.fetch(:token))
       end
 
       def notes(database_id:)
