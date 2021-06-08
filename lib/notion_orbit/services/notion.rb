@@ -4,7 +4,7 @@ module NotionOrbit
       attr_reader :client, :token
 
       def initialize(params = {})
-        @client = ::Notion::Client.new(token: params.fetch(:token, ENV["NOTION_API_KEY"]))
+        @client = ::Notion::Client.new(token: params.fetch(:notion_api_key, ENV["NOTION_API_KEY"]))
       end
 
       def notes(database_id:)
