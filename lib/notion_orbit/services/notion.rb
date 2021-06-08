@@ -46,11 +46,14 @@ module NotionOrbit
         blocks = NotionOrbit::NotionObjects::Blocks.new(raw_blocks, @client.token)
         content = blocks.to_markdown
         content += "\\n\\n"
-        content += "[Open in Notion](#{page_url(page[:id])})"
+        content += "[Open in Notion](#{page_url(page[:id], page[:properties]["Name"]["title"][0]["text"]["content"])})"
       end
 
-      def page_url(page_id)
-        "https://notion.so/#{ENV['NOTION_WORKSPACE_SLUG']}/#{page_id}}"
+      def page_url(page_id, page_title)
+        page_title&.strip.gsub!(" ", "-")
+        page_id&.gsub!("-", "")
+
+        "https://notion.so/#{ENV['NOTION_WORKSPACE_SLUG']}/#{page_title}-#{page_id}"
       end
     end
   end
