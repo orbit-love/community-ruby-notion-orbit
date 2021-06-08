@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion_orbit (0.0.2)
+    notion_orbit (0.0.3)
       dotenv
       http (~> 4.4)
       json (~> 2.5)
