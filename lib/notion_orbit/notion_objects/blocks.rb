@@ -5,8 +5,9 @@ module NotionOrbit
 
       attr_accessor :blocks
 
-      def initialize(raw_blocks, indentation: 0)
-        @blocks = raw_blocks.map{ |raw_block| Block.new_from_raw_block(raw_block, indentation: indentation) }
+      def initialize(raw_blocks, notion_api_key, indentation: 0)
+        @blocks = raw_blocks.map{ |raw_block| Block.new_from_raw_block(raw_block, notion_api_key, indentation: indentation) }
+        @notion_api_key = notion_api_key
         @indentation = indentation
       end
 
