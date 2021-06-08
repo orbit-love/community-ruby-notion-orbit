@@ -2,7 +2,7 @@ module NotionOrbit
   module NotionObjects
     class Block
       class << self
-        def new_from_raw_block(raw_block, indentation: 0)
+        def new_from_raw_block(raw_block, notion_api_key, indentation: 0)
           klass = case raw_block.type
           when 'bulleted_list_item'
             NotionOrbit::NotionObjects::BlockTypes::BulletedListItem
@@ -21,16 +21,17 @@ module NotionOrbit
           else
             NotionOrbit::NotionObjects::BlockTypes::Unsupported
           end
-          klass.new(raw_block, indentation)
+          klass.new(raw_block, notion_api_key, indentation)
         end
       end
 
-      def initialize(raw_block, indentation)
+      def initialize(raw_block, notion_api_key, indentation)
         @raw_block = raw_block
         @id = raw_block.id
         @type = raw_block.type
         @has_children = raw_block.has_children
         @indentation = indentation
+        @notion_api_key = notion_api_key
       end
 
       def to_markdown
@@ -41,7 +42,7 @@ module NotionOrbit
         if @has_children
           raw_children = notion_service.client.block_children(id: @id).results
           children_indentation = indent_children? ? @indentation + 2 : @indentation
-          children_blocks = Blocks.new(raw_children, indentation: children_indentation)
+          children_blocks = Blocks.new(raw_children, @notion_api_key, indentation: children_indentation)
           markdown += "\n\n" + children_blocks.to_markdown
         end
 
@@ -53,7 +54,7 @@ module NotionOrbit
       end
 
       def notion_service
-        @notion_service ||= NotionOrbit::Services::Notion.new
+        @notion_service ||= NotionOrbit::Services::Notion.new(notion_api_key: @notion_api_key)
       end
     end
   end

@@ -1,10 +1,10 @@
 module NotionOrbit
   module Services
     class Notion
-      attr_reader :client, :token
+      attr_reader :client, :notion_api_key
 
       def initialize(params = {})
-        @client = ::Notion::Client.new(token: params.fetch(:notion_api_key, ENV["NOTION_API_KEY"]))
+        @client = ::Notion::Client.new(token: params[:notion_api_key])
       end
 
       def notes(database_id:)
@@ -43,7 +43,7 @@ module NotionOrbit
 
       def page_content(page)
         raw_blocks = @client.block_children(id: page.id).results
-        blocks = NotionOrbit::NotionObjects::Blocks.new(raw_blocks)
+        blocks = NotionOrbit::NotionObjects::Blocks.new(raw_blocks, @client.token)
         content = blocks.to_markdown
         content += "\\n\\n"
         content += "[Open in Notion](#{page_url(page[:id])})"
