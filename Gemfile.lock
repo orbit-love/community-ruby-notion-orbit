@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    notion_orbit (0.0.3)
+    notion_orbit (0.0.4)
       dotenv
       http (~> 4.4)
       json (~> 2.5)
@@ -48,7 +48,7 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       http-parser (~> 1.2.0)
-    http-cookie (1.0.3)
+    http-cookie (1.0.4)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     http-parser (1.2.3)
