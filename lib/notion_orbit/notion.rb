@@ -10,7 +10,7 @@ module NotionOrbit
             @notion_workspace_slug = params.fetch(:notion_workspace_slug)
         end
 
-        def process_notes      
+        def process_notes
             notion_service = NotionOrbit::Services::Notion.new(notion_api_key: @notion_api_key)
             orbit_service = NotionOrbit::Services::Orbit.new(orbit_workspace: @orbit_workspace, orbit_api_key: @orbit_api_key)
             

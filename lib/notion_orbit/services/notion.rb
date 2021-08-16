@@ -23,6 +23,7 @@ module NotionOrbit
             content: page_content(page)
           }
         end
+        
         notes
       end
 
@@ -39,7 +40,7 @@ module NotionOrbit
       def page_properties(page)
         {
           email: page[:properties]['Member Email'].email,
-          page_id: page[:id]
+          page_id: "#{page[:id]}"
         }
       end
 
