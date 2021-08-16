@@ -11,7 +11,7 @@ module NotionOrbit
         pages = @client.database_query(id: database_id).results
 
         # only process pages that opt-in to sending the note to Orbit 
-        pages = pages.filter { |page| page.properties['Send to Orbit'].checkbox }
+        pages = pages.filter { |page| page.properties['Send to Orbit'].checkbox && page[:properties]['Member Email'].email }
 
         pages = pages.filter { |page| page.properties['Orbit Status'].rich_text[0] == nil }
         puts pages

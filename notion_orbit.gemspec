@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "http", "~> 4.4"
   spec.add_dependency "json", "~> 2.5"
   spec.add_dependency "zeitwerk", "~> 2.4"
-  spec.add_dependency "notion-ruby-client"
+  spec.add_dependency "notion-ruby-client", "~> 0.0.8"
   spec.add_dependency "thor", "~> 1.1"
   spec.add_dependency "dotenv"
   spec.add_development_dependency "rspec", "~> 3.4"
