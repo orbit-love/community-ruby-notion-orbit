@@ -38,8 +38,7 @@ RSpec.describe NotionOrbit::Interactions::Note do
                   headers: {
                     'Accept'=>'application/json; charset=utf-8',
                     'Authorization'=>'Bearer a123',
-                    'Content-Type'=>'application/json',
-                    'User-Agent'=>'Notion Ruby Client/0.0.5'
+                    'Content-Type'=>'application/json'
                   }).
                 to_return(status: 200, body: "", headers: {})
 

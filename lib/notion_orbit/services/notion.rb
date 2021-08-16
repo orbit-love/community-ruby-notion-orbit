@@ -11,7 +11,7 @@ module NotionOrbit
         pages = @client.database_query(id: database_id).results
 
         # only process pages that opt-in to sending the note to Orbit 
-        pages = pages.filter { |page| page.properties['Send to Orbit'].checkbox }
+        pages = pages.filter { |page| page.properties['Send to Orbit'].checkbox && page[:properties]['Member Email'].email }
 
         pages = pages.filter { |page| page.properties['Orbit Status'].rich_text[0] == nil }
         puts pages
@@ -47,8 +47,9 @@ module NotionOrbit
         raw_blocks = @client.block_children(id: page.id).results
         blocks = NotionOrbit::NotionObjects::Blocks.new(raw_blocks, @client.token)
         content = blocks.to_markdown
+        note_title = page[:properties]["Name"]["title"][0]["text"]["content"] || "Untitled Note"
         content += "\\n\\n"
-        content += "[Open in Notion](#{page_url(page[:id], page[:properties]["Name"]["title"][0]["text"]["content"])})"
+        content += "[Open in Notion](#{page_url(page[:id], note_title)})"
       end
 
       def page_url(page_id, page_title)
