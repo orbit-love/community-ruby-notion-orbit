@@ -1,3 +1,6 @@
+>**Warning**
+>This repository is no longer recommended or maintained and has now been archived. Huge thanks to the original authors and contributors for providing this to our community. Should you wish to maintain your own version of this repository, you are welcome to fork this repository and continue developing it there.
+
 # Notion Notes to Orbit Workspace
 
 
